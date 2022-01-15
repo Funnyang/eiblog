@@ -11,7 +11,7 @@ services:
       - ${PWD}/esdata:/usr/share/elasticsearch/data
     restart: always
   eiblog:
-    iamge: funnyang/eiblog:latest
+    image: funnyang/eiblog:latest
     volumes:
       - ${PWD}/conf:/app/conf
     extra_hosts:
@@ -27,7 +27,7 @@ services:
       - 127.0.0.1:9000:9000
     restart: always
   backup:
-    image: deepzz0/backup:latest
+    image: funnyang/backup:latest
     volumes:
       - ${PWD}/conf:/app/conf
     links:
