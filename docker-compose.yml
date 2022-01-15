@@ -3,33 +3,33 @@ services:
   mongodb:
     image: mongo:3.2
     volumes:
-    - ${PWD}/mgodb:/data/db
+      - ${PWD}/mgodb:/data/db
     restart: always
   elasticsearch:
     image: deepzz0/elasticsearch:2.4.1
     volumes:
-    - ${PWD}/esdata:/usr/share/elasticsearch/data
+      - ${PWD}/esdata:/usr/share/elasticsearch/data
     restart: always
   eiblog:
-    iamge: deepzz0/eiblog:latest
+    iamge: funnyang/eiblog:latest
     volumes:
-    - ${PWD}/conf:/app/conf
+      - ${PWD}/conf:/app/conf
     extra_hosts:
-    - "disqus.com:151.101.192.134"
-    - "deepzz.disqus.com:151.101.192.134"
+      - "disqus.com:151.101.192.134"
+      - "funnyang.disqus.com:151.101.192.134"
     links:
-    - elasticsearch
-    - mongodb
+      - elasticsearch
+      - mongodb
     environment:
-    - GODEBUG=netdns=cgo
-    - RUN_MODE=prod
+      - GODEBUG=netdns=cgo
+      - RUN_MODE=prod
     ports:
-    - 127.0.0.1:9000:9000
+      - 127.0.0.1:9000:9000
     restart: always
   backup:
     image: deepzz0/backup:latest
     volumes:
-    - ${PWD}/conf:/app/conf
+      - ${PWD}/conf:/app/conf
     links:
-    - mongodb
+      - mongodb
     restart: always

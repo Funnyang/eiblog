@@ -7,7 +7,7 @@ on:
 
 jobs:
   package:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - name: Golang env
       uses: actions/setup-go@v2
@@ -37,7 +37,7 @@ jobs:
     - name: Build image
       env:
         GOPROXY: https://goproxy.io,direct
-      run: scripts/run_build.sh deepzz0 ${{ steps.vars.outputs.tag }}
+      run: scripts/run_build.sh funnyang ${{ steps.vars.outputs.tag }}
 
     - name: Package tar
       env:
