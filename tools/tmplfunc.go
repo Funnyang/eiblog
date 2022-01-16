@@ -25,11 +25,17 @@ func init() {
 	TplFuncMap["join"] = Join
 	TplFuncMap["isnotzero"] = IsNotZero
 	TplFuncMap["getavatar"] = GetAvatar
+	TplFuncMap["escape"] = EscapeString
 }
 
 // Str2html string to html
 func Str2html(raw string) htmpl.HTML {
 	return htmpl.HTML(raw)
+}
+
+// EscapeString html string
+func EscapeString(raw string) htmpl.HTML {
+	return htmpl.HTML(htmpl.HTMLEscapeString(raw))
 }
 
 // DateFormat takes a time and a layout string and returns a string with the formatted date.

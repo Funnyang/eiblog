@@ -10,7 +10,7 @@
             href="/admin/draft-delete?cid={{.Edit.ID}}">删除它</a></cite>{{end}}
         <p class="title">
           <label for="title" class="sr-only">标题</label>
-          <input type="text" id="title" name="title" autocomplete="off" {{with .Edit}}value="{{.Title}}" {{end}}
+          <input type="text" id="title" name="title" autocomplete="off" {{with .Edit}}value="{{escape .Title}}" {{end}}
             placeholder="标题" class="w-100 text title" />
         </p>
         <p class="mono url-slug">
