@@ -315,6 +315,7 @@ func handleAPIPostCreate(c *gin.Context) {
 	err = cache.Ei.UpdateArticle(context.Background(), article.ID, map[string]interface{}{
 		"title":      article.Title,
 		"content":    article.Content,
+		"slug":       article.Slug,
 		"serie_id":   article.SerieID,
 		"is_draft":   article.IsDraft,
 		"tags":       article.Tags,
